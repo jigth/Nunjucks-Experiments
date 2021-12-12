@@ -1,0 +1,18 @@
+{
+  "name": "nunjucks-experiments",
+  "version": "1.0.0",
+  "description": "Some experiments using the 'Nunjucks' templating engine.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve ./source",
+    "build": "npx @11ty/eleventy --input=./source --output=./compiledHTML",
+    "serve": "npm run build && npx serve -S ./compiledHTML"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "serve": "^13.0.2"
+  }
+}

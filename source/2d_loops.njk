@@ -1,0 +1,35 @@
+<h1>2d_loops</h1>
+<h3>Looping a 2 dimensional data structure (like a matrix, or table)</h3>
+{% set matrix = [
+    [ "English", "Spanish", "French" ],
+    [ "And this one of them", "Y este es uno de ellos", "et c'est l'un d'entre eux" ],
+    [ "And this is another", "Y este es otro", "Et c'est un autre" ],
+    [ "And this is another", "Y este es otro", "Et c'est un autre" ],
+    [ "And this is another", "Y este es otro", "Et c'est un autre" ],
+    [ "And this is the last element", "Y este es el elemento final", "Et c'est le dernier élément" ]
+] %}
+
+<table>
+    {% for row in matrix %}
+        {# new row #}
+        <tr>
+            {% set rowloop = loop %}
+            {% for cell in row %}
+
+                {# Indexes start at ONE #}
+                {% if rowloop.index == 1 %}
+                    <th>
+                        {% set columnloop = loop %}
+                        {{ cell }}
+                    </th>
+                {% else %}
+                    <td>
+                        {% set columnloop = loop %}
+                        {{ cell }}
+                    </td>
+                {% endif %}
+
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

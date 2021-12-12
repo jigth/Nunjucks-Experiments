@@ -1,0 +1,21 @@
+<h1>Object Traversal</h1>
+{% set crazyObj = {
+    crazy: true,
+    notCrazy: false,
+    fooList: ['thisIsAFooList', 'look', 'at', 'me', 'now']
+} %}
+
+{% for key, value in crazyObj %}
+    <strong>{{key}}</strong>
+
+    {% if value is iterable %}
+        <h1>The following is clearly iterable</h1>
+        {% for k in value %}
+            <ul>
+                <li><em>{{ k }}</em></li>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>{{value}}</p>
+    {% endif %}
+{% endfor %}

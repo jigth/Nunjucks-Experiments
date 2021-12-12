@@ -1,0 +1,16 @@
+<!-- Test Another loop (traversing a string) -->
+<!-- PERSONAL NOTE: Strings are iterable in Nunjucks templating system -->
+<h1>Strings Traversal</h1>
+{% set animal = 'Pejelagarto' %}
+
+{% if animal is iterable %}
+    Iterable!
+    {% for item in animal %}
+        <p>Value: {{ item }}</p>
+    {% endfor %}
+{% else %}
+    <p><strong>Not iterable!</strong> (This shouldn't print in Nunjucks template)</p>
+    <p>(This shouldn't print in Nunjucks template)</p>
+    <p>(But it could be printed in other templating engines such as 'Twig')</p>
+    {{ animal }}
+{% endif %}
